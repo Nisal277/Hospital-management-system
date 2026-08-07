@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import errorHandler from "./middleware/errorHandler.js";
+import authRoutes from "./routes/authRoutes.js";
 
 // Load env vars
 dotenv.config();
@@ -22,7 +23,7 @@ app.get("/api/health", (req, res) => {
 });
 
 // Auth routes will be mounted here in Step 3:
-// app.use("/api/auth", authRoutes);
+app.use("/api/auth", authRoutes);
 
 // Error handling middleware (must be last)
 app.use(errorHandler);
